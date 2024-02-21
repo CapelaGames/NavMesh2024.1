@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class OpenDoor : MonoBehaviour
+{
+    public Vector3 deltaPosition;
+    public float speed = 5f;
+    public float waitTime = 3f;
+
+    private Vector3 _closedPosition;
+    private Vector3 _openPosition;
+
+    void Start()
+    {
+        _closedPosition = transform.position;
+        _openPosition = transform.position + deltaPosition;
+    }
+    void Update()
+    {
+        if(Time.time > waitTime) 
+        {
+            transform.position = Vector3.MoveTowards(transform.position, _openPosition, speed * Time.deltaTime);
+        }
+    }
+}
