@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public Vector3 deltaPosition;
+    public Vector3 deltaPosition = new Vector3(0f,-2f,0f);
     public float speed = 5f;
     public float waitTime = 3f;
 
@@ -16,11 +16,13 @@ public class OpenDoor : MonoBehaviour
         _closedPosition = transform.position;
         _openPosition = transform.position + deltaPosition;
     }
+
     void Update()
     {
-        if(Time.time > waitTime) 
+        if (Time.time > waitTime)
         {
             transform.position = Vector3.MoveTowards(transform.position, _openPosition, speed * Time.deltaTime);
         }
     }
+
 }
