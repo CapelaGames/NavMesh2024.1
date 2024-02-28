@@ -17,12 +17,17 @@ public class OpenDoor : MonoBehaviour
         _openPosition = transform.position + deltaPosition;
     }
 
-    void Update()
+    public void OpenTheDoor()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, _openPosition, speed * Time.deltaTime);
+    }
+
+/*    void Update()
     {
         if (Time.time > waitTime)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _openPosition, speed * Time.deltaTime);
+            OpenTheDoor();
         }
-    }
+    }*/
 
 }
