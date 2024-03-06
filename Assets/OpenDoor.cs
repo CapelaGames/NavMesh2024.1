@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class OpenDoor : MonoBehaviour
 {
@@ -22,12 +23,14 @@ public class OpenDoor : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _openPosition, speed * Time.deltaTime);
     }
 
-/*    void Update()
+    /*
+    void Update()
     {
         if (Time.time > waitTime)
         {
             OpenTheDoor();
         }
-    }*/
+    }
+   */
 
 }

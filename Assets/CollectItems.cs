@@ -1,47 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.AI.Navigation;
 using UnityEngine;
 
 public class CollectItems : MonoBehaviour
 {
-    public int collectedObjects = 0;
-
     public OpenDoor door;
 
-    private void Update()
+    public int collectedItems = 0;
+    void Start()
     {
-        if(collectedObjects >= 3)
+        
+    }
+
+    void Update()
+    {
+        if(collectedItems >= 3)
         {
-            door.OpenTheDoor(); 
+            door.OpenTheDoor();
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        //Tag method
-        if (collision.gameObject.tag == "Collectable")
+        //Debug.Log("Name of GO: " + collision.gameObject.name);
+
+        if(collision.gameObject.tag == "Collectable")
         {
-            collectedObjects++;
+            collectedItems++;
+
             Destroy(collision.gameObject);
         }
 
-
-        //Debug.Log("Collided with: " + collision.gameObject.name);
+        
     }
-
-    /*
-        //Advanced method
-        Collectable collectable = collision.gameObject.GetComponent<Collectable>();
-
-        if (collectable != null )
-        {
-            collectedObjects++;
-            Destroy(collision.gameObject);
-        }
-*/
 
     void MyOwnMethod()
     {
+        Debug.Log("Method");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
